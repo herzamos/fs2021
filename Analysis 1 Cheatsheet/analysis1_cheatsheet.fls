@@ -1,8 +1,8 @@
-PWD c:/Users/herza/Desktop/Analysis 1 Cheatsheet
+PWD c:/Users/herza/Desktop/fs2021/Analysis 1 Cheatsheet
 INPUT c:/texlive/2021/texmf.cnf
 INPUT c:/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/herza/Desktop/Analysis 1 Cheatsheet/analysis1_cheatsheet.tex
+INPUT c:/Users/herza/Desktop/fs2021/Analysis 1 Cheatsheet/analysis1_cheatsheet.tex
 OUTPUT analysis1_cheatsheet.log
 INPUT c:/texlive/2021/texmf-dist/tex/latex/extsizes/extarticle.cls
 INPUT c:/texlive/2021/texmf-dist/tex/latex/extsizes/extarticle.cls

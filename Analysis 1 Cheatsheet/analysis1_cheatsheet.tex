@@ -115,7 +115,7 @@
 \begin{definition}
   $A \subset \R$ heisst von oben [unten] beschränkt falls es $x \in \R$ gibt, sodass $x \geq a$ [$x \leq a$] für alle $a \in A$. $x$ heisst dann obere [untere] Schranke von $A$. Falls $x\in A$ und $x$ obere [untere] SChranke von $A$, ist $x$ das Maximum [Minimum] von $A$.
 \end{definition}
-\begin{mainbox}
+\begin{mainbox}{Supremum und Infimum}
   Falls $A \subset \R, A \neq \emptyset$ v.o.b [v.u.b] ist, gibt es eine kleinste obere Schranke [grösste untere Schranke] $x$ von $A$. $x$ heisst dann Supremum [Infimum] von $A$.
 \end{mainbox}
 
@@ -193,6 +193,11 @@ Eine Teilfolge von $a_n$ ist eine Folge $b_n$ wobei $b_n = a_{l(n)}$ und $l$ ein
  \item Suchen einer divergenten Vergleichsfolge.
  \item Bei alternierenden Folgen: Zeige, dass Teilfolgen nicht gleich werden ($\limn a_{p_1(n)} \ne \limn a_{p_2(n)}$), mit z.B. \\ gerade/ungerade als Teilfolgen.
 \end{enumerate}
+
+\subsection{Reihe Konvergenz Definition}
+\begin{mainbox}{Definition}
+  Die Reihe $\sum_{k=1}^\infty a_k$ ist \textbf{konvergent}, falls die Folge $(S_n)_{n \geq 1}$ der Partialsummen konvergiert. In diesem Fall definirien wir: $$\sum_{k=1}^\infty a_k := \lim_{n\to \infty} S_n$$
+\end{mainbox}
 
 \subsection{Reihenarithmetik}
 \begin{subbox}{Reihenarithmetik}
@@ -408,13 +413,16 @@ Ein Intervall $I \in \R$ ist kompakt, falls es von der Form $I = [a,b]$ mit $a \
 
 \begin{mainbox}{Grenzwert - Funktionen}
  Wenn $f: D \to \R, x_0 \in \R$ ein Häufungspunkt von $D$ ist, dann ist $A \in \R$ der Grenzwert von $f(x)$ für $x \to x_0$ ($\lim_{x\to x_0} f(x) = A$), falls $\forall \epsilon > 0 \ \exists \delta > 0$, so dass: $$\forall x \in D \cap (]x_0 - \delta, x_0 + \delta[ \backslash \{x_0\}): |f(x) - A| < \epsilon$$
+ \textbf{Alternativ:} $$|f(x) - A| < \epsilon \text{ whenever } 0 < |x - x_0| < \delta$$
 \end{mainbox}
 
 \subsection{Linksseitiger und Rechtsseitiger Grenzwert}
 Sei $f: D \to \R$ und $x_0 \in D$ ein Häufungspunkt von $D \cap ]x_0, +\infty[$. Falls der Grenzwert der eingeschränkten Funktion $f$ im Bereich $D \cap ]x_0, +\infty[$ für $x \to x_0$ existiert, wird er mit $\lim_{x\to x_0^+}f(x)$ bezeichnet und nennt sich \textbf{rechtsseitiger Grenzwert} von $f$ bei $x_0$. Das Analoge gilt für den \textbf{linksseitigen Grenzwert}. \\
 Wir erweitern diese Definition auf $\lim_{x\to x_0^+}f(x) = + \infty$ falls gilt: $$\forall \epsilon > 0, \exists \delta > 0, \forall x \in D \cap ]x_0, x_0 + \delta[: f(x) < \frac{1}{\epsilon}$$
 und analog für $\lim_{x\to x_0^+}f(x) = - \infty$ $$\forall \epsilon > 0, \exists \delta > 0, \forall x \in D \cap ]x_0, x_0 + \delta[: f(x) < \frac{1}{-\epsilon}$$
-Für den linksseitigen Grenzwert gilt das Analoge.
+Für den linksseitigen Grenzwert gilt das Analoge. \\
+\textbf{Alternativ:} Man sagt $\lim_{x \to x_0^+} f(x) = L$ falls gilt: $$\forall \epsilon \ \exists \delta \ |f(x) - L| < \epsilon \text{ whenever } 0 < x - a < \delta \text{ (oder } a < x  < a + \delta )$$
+Man sagt $\lim_{x \to x_0^+} f(x) = L$ falls gilt: $$\forall \epsilon \ \exists \delta \ |f(x) - L| < \epsilon \text{ whenever } -\delta < x - a < 0 \text{ (oder } a - \delta < x  < a )$$
 
 \section{Ableitungen}
 \subsection{Differenzierbarkeit}
@@ -922,6 +930,11 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
 \end{mainbox}
 
 \section{Nütziche Sätze}
+
+\begin{subbox}{Bogenlänge}
+  $$\mathcal{L} = \int_a^b \sqrt{1 + (f'(x))^2}$$ 
+\end{subbox}
+
 \begin{subbox}{Bernoulli Ungleichung}
   $$(1 + x)^n \geq 1 + n \cdot x \ \ \ \forall n \in \mathbb{N}, x > -1$$
 \end{subbox}
