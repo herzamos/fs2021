@@ -125,6 +125,9 @@
   Sei $(a_n)_{n\in \mathbb{N}}$ eine Folge. $(a_n)_{n\in \mathbb{N}}$ konvergiert gegen L \\ $\iff \lim_{n \to \infty} a_n = L $ (i.e. $\exists L \in \R, \forall \epsilon > 0$ die Menge ${n \in \N: a_n \notin ]L - \epsilon, L + \epsilon[}$ endlich ist)\\ $\iff \forall \epsilon > 0 \ \exists N > 1 \ \forall n \ge N : \ | a_n - L | < \epsilon$.
 \end{mainbox}
 Wir dürfen (o.B.d.A.) annehmen, dass $\epsilon$ durch eine Konstante $C \in \R$ beschränkt ist.
+\begin{subbox}{Divergenz}
+  Eine Folge $a_n$ ist divergent (notiert $\lim_{n \to \infty} a_n = \infty$) falls: $$\forall K > 0 \exists N = N(K) \in \N \text{, sodass } \forall n \geq N: |a_n| > K$$
+\end{subbox}
 
 \subsection{Konvergenz con Folgen}
 
@@ -515,12 +518,13 @@ Jede glatte, d.h. beliebig oft differenzierbare, Funktion $f \in C^\infty$ kann 
 \begin{mainbox}{Taylor-Polynom}
  Das n-te Talyor-Polynom $T_n f(x; a)$ an einer Entwicklungsstelle $a$ ist definiert als:
  $$T_n f(x; a) := \sum_{k=0}^{n} \frac{f^{(k) (a)}}{n!} \cdot (x - a)^k$$ 
- $ = f(a) + f'(a) \cdot (x-a) + \frac{f''(a)}{2} \cdot (x - a)^2 + \ldots$
+ $ = f(a) + f'(a) \cdot (x-a) + \frac{f''(a)}{2} \cdot (x - a)^2 + \ldots$ \\
+ mit Rest: $$\frac{f^{n+1}(\xi)}{(n + 1)}(x - a)^{n + 1} \text{ für ein } \xi \in ] a, x [$$ 
 \end{mainbox}
 
 \begin{mainbox}{Taylorreihe}
  Die unendliche Reihe
- $$Tf(x;a) := T_\infty = \sumn \frac{f^(n)(a)}{n!} \cdot (x-a)^n$$
+ $$Tf(x;a) := T_\infty = \sumn \frac{f^{(n)}(a)}{n!} \cdot (x-a)^n$$
  wird Taylorreihe von $f$ an Stelle $a$ genannt.
 \end{mainbox}
 \begin{bemerkung}
