@@ -18,7 +18,7 @@
 % define nice looking boxes
 \usepackage{tcolorbox}
 
-% remove spacing in lists 
+% remove spacing in lists and fancy enumerate
 \usepackage{enumitem}
 \setlist{noitemsep}
 
@@ -91,7 +91,7 @@
 \usepackage{graphicx}
 
 % Metadata
-\title{\vspace{-1cm}Cheatsheet Analysis 1\vspace{-0.75cm}}
+\title{\vspace{-1cm}Cheatsheet Analysis 1\vspace{-0.65cm}}
 \author{Amos Herz\vspace{-0.5cm}}
 \date{FS 2021}
 
@@ -104,6 +104,8 @@
 \def\dx{\text{ d}x}
 
 \begin{document}
+
+\maketitle
 
 \section{Komplexe und Reelle Zahlen}
 \subsection{Archimedisches Prinzip}
@@ -226,6 +228,9 @@ Die Reihe $\sumk a_k$ ist genau dann konvergent, falls $$\forall \epsilon > 0 \ 
 \begin{mainbox}{Nullfolgenkriterium}
  Wenn für eine Folge $\limn |a_n| \ne 0$ ist, dann divergiert $\sumn a_n$.
 \end{mainbox}
+\noindent\textbf{Proof:} 
+$a_n$ konvergiert $\Rightarrow s_n = \sum_{i = 1}^n a_i$ konvergiert. Das heisst, es existiert ein Grenzwert $s$, sodass $\lim_{n \to \infty} s_n = s$. Dann gilt:
+$$\lim_{n \to \infty} a_n = \lim_{n \to \infty} (s_n - s_{n-1}) = \lim_{n \to \infty} s_n - \lim_{n \to \infty} s_{n-1} = s - s = 0$$
 
 
 \begin{mainbox}{Vergleichssatz}
@@ -309,6 +314,7 @@ Falls gilt:
 
 \subsubsection{Strategie - Konvergenz von Reihen}
 \begin{enumerate}
+  \item Ist der Partialsummen nach oben beschränkt? Wenn Ja, konvergiert die Reihe
  \item Ist Reihe ein bekannter Typ? (Teleskopieren, Geometrische/Harmonische Reihe, Zetafunktion, ...)
  \item Ist $\limn a_n = 0$? Wenn nein, divergiert die Reihe (\textit{Nullfolgekriterium})
  \item Quotientenkriterium \& Wurzelkriterium anwenden
@@ -379,8 +385,31 @@ Ein Intervall $I \in \R$ ist kompakt, falls es von der Form $I = [a,b]$ mit $a \
 \end{mainbox}
 
 \begin{bemerkung}
+  In uniform convergence, $N$ does \textbf{not} depend on $x$, we hve to find one which works for all $x$. On the other hand, for pointwise convergence, $N$ can depend on both $\epsilon$ and $x$.
+\end{bemerkung}
+
+\begin{bemerkung}
   Wenn eine Funktionenfolge aus stetigen Funktionen besteht und gleichmässig gegen eine Funktion $f$ konvergiert, dann ist $f$ stetig.
 \end{bemerkung}
+
+\subsubsection{Strategie: Konvergenz von Funktionenfolgen}
+\begin{enumerate}
+  \item Punktweiser Limes von $f_n$ auf $D$ finden.
+  \item Prüfe auf gleichmässige Konvergenz:
+        \begin{enumerate}[label=\roman*]
+          \item Indirekte Methode: $f$ unstetig bedeutet keine
+          gleichmässige Konvergenz, $f$ stetig, monoton wachsend
+          und $D$ kompakt bedeuted gleichmässige Konvergenz.
+          \item Direkte Methode: Berechne $sup_{x \in D} |f_n(x) - f(x)|$ (evtl. Ableitung von $|f_n(x) - f(x)|$ gleich Null setzen).
+          Danach Limes für $n \to \infty$ von $sup_{x \in D} |f_n(x) - f(x)|$ berechnen, falls dieser Null ist, so konvergiert $f_n$
+          gleichmässig.
+        \end{enumerate}
+  \item Prüfe auf \textbf{nicht} gleichmässige Konvergenz:
+        \begin{enumerate}
+          \item Assume $\lim_{n \to \infty} f_n(x) = f(x)$.
+          \item Choose $x$ and $n$ for which $|f_n(x) - f(x)| \geq \epsilon$ for some $\epsilon$.
+        \end{enumerate}
+\end{enumerate} 
 
 \subsection{Konvergenz von FunktionenReihen}
 \begin{subbox}{}
@@ -418,6 +447,13 @@ Ein Intervall $I \in \R$ ist kompakt, falls es von der Form $I = [a,b]$ mit $a \
  Wenn $f: D \to \R, x_0 \in \R$ ein Häufungspunkt von $D$ ist, dann ist $A \in \R$ der Grenzwert von $f(x)$ für $x \to x_0$ ($\lim_{x\to x_0} f(x) = A$), falls $\forall \epsilon > 0 \ \exists \delta > 0$, so dass: $$\forall x \in D \cap (]x_0 - \delta, x_0 + \delta[ \backslash \{x_0\}): |f(x) - A| < \epsilon$$
  \textbf{Alternativ:} $$|f(x) - A| < \epsilon \text{ whenever } 0 < |x - x_0| < \delta$$
 \end{mainbox}
+\noindent\textbf{Beispiel:}
+Prove that $\lim_{x \to 1} (x^2 + 3) = 4$.\\
+\textit{Proof:} Begin by letting $\varepsilon > 0$ be given. Find $\delta > 0$ (dependent on $\varepsilon$) so that if $0 < |x - 1| < \delta$, then $|f(x) - 4| < \varepsilon$. Begin with $|f(x) - 4| < \varepsilon$ and solve for $|x - 1|$.\\
+$\Rightarrow \ldots \Rightarrow |x-1||x+1| < \varepsilon$.\\
+Assume now $\delta \leq 1 \Rightarrow |x - 1| < \delta \leq 1 \Rightarrow -1 < x-1 < 1 \Rightarrow 0 < x < 2$ so that $1 < |x+1| < 3$. \\
+Follows $|x-1||x+1| < |x-1| \cdot 3 < \varepsilon \Rightarrow |x-1| < \frac{\epsilon}{3}$. \\
+Take now $\delta = \text{min} \{ 1, \frac{\epsilon}{3} \}$. Thus if $0 < |x - 1| < \delta$, it follows that $|f(x) - 10| < \epsilon$.
 
 \subsection{Linksseitiger und Rechtsseitiger Grenzwert}
 Sei $f: D \to \R$ und $x_0 \in D$ ein Häufungspunkt von $D \cap ]x_0, +\infty[$. Falls der Grenzwert der eingeschränkten Funktion $f$ im Bereich $D \cap ]x_0, +\infty[$ für $x \to x_0$ existiert, wird er mit $\lim_{x\to x_0^+}f(x)$ bezeichnet und nennt sich \textbf{rechtsseitiger Grenzwert} von $f$ bei $x_0$. Das Analoge gilt für den \textbf{linksseitigen Grenzwert}. \\
@@ -460,6 +496,15 @@ Man sagt $\lim_{x \to x_0^+} f(x) = L$ falls gilt: $$\forall \epsilon \ \exists 
 \begin{bemerkung}
   $\exp(x), \sin(x), \cos(x), \sinh(x), \cosh(x),$ \\ $ \tanh(x), \ln(x), \arcsin(x), \arccos(x), \text{arccot}(x), \arctan(x)$ und alle Polynome sind glatte Funktionen. $\tan(x)$ ist auf $\R \backslash \{\pi/2 + k\pi\}$, $\cot(x)$ auf $\R \backslash \{k\pi\}$ glatt.
 \end{bemerkung}
+\\
+\textbf{Zeigen, dass eine Funktion in $x_{0}$ nicht differenzierbar ist:}
+\begin{itemize}
+  \item $\lim _{x \rightarrow x_{0}} \frac{f(x)-f\left(x_{0}\right)}{x-x_{0}}=\pm \infty$
+  \item $f$ nicht stetig in $x_{0} \Rightarrow f$ nicht differenzierbar in $x_{0}$
+  \item $\lim _{x \rightarrow x_{0}^{+}} \frac{f(x)-f\left(x_{0}\right)}{x-x_{0}} \neq \lim _{x \rightarrow x_{0}^{-}} \frac{f(x)-f\left(x_{0}\right)}{x-x_{0}}$
+\end{itemize}
+\noindent\textbf{Beispiel:} Zeige, dass $\sqrt{x}$ nicht in $x_{0}=0$ differenzierbar ist: \\
+$\lim _{h \rightarrow 0} \frac{\sqrt{h}}{h}=\lim _{h \rightarrow 0} \frac{1}{\sqrt{h}}=+\infty$, daher nicht differenzierbar in $x_{0}=0$.
 
 \subsection{Ableitungsregeln}
 
@@ -482,6 +527,11 @@ Man sagt $\lim_{x \to x_0^+} f(x) = L$ falls gilt: $$\forall \epsilon \ \exists 
 \begin{subbox}{Potenzregel}
  $(c \cdot x^a)' = c \cdot a \cdot x^{a - 1}$
 \end{subbox}
+
+\begin{mainbox}{Umkehrfunktion}
+  Sei $f(x)$ differenzierbar und invertierbar. 
+  $$(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}$$
+\end{mainbox}
 
 \begin{mainbox}{Rule de L'Hôpital}
 Für Grenzwerte, die auf einen unbestimmten Ausdruck der Form $\frac{0}{0}$ oder $\frac{\infty}{\infty}$ führen, gilt:
@@ -793,7 +843,21 @@ Für das $k$-te Bernoulli Polynom gilt: $B_k(x) = k!P_k(x)$. Wir definieren weit
 
 Somit erhalten wir für das Bernoulli Polynom folgenden Definition: $$B_k(x) = \sum_{i=0}^{k}{k \choose i}B_ix^{k-i}$$
 
-Hier ein paar Bernoulli Polynome: $B_0(x) = 1$, $B_1(x) = x - \frac{1}{2}$, $B_2(x) = x^2 - x + \frac{1}{6}$. Nun definieren wir noch: $$\tilde{B}_k(x) = \begin{cases}
+Bernoulli Polynome und Zahlen:
+\begin{center}
+\begin{tabular}{c|lc}
+  $n$ & $B_n(x)$ & $B_n$ \\
+  \hline
+  $0$ & $1$ & $1$\\
+  $1$ & $x-\frac{1}{2}$ & $\pm \frac{1}{2}$ \\
+  $2$ & $x^2-x+\frac{1}{6}$ & $\frac{1}{6}$ \\
+  $3$ & $x^3-\frac{3}{2}x^2+\frac{1}{2}x$ & $0$ \\
+  $4$ & $x^4-2x^3+x^2-\frac{1}{30}$ & $-\frac{1}{30}$\\
+  $5$ & $x^5-\frac{5}{2}x^4+\frac{5}{3}x^3-\frac{1}{6}x$ & $0$\\
+  $6$ & $x^6-3x^5+\frac{5}{2}x^4-\frac{1}{2}x^2+\frac{1}{42}$ & $\frac{1}{42}$\\
+\end{tabular}
+\end{center}
+Nun definieren wir noch: $$\tilde{B}_k(x) = \begin{cases}
   B_k(x) & \forall x: 0 \leq x < 1 \\
   B_k(x-n) & \forall x: n \leq x < n + 1
 \end{cases}$$
@@ -843,6 +907,151 @@ Die Gamma Funktion konvergiert für alle $s > 0$ und hat folgende weiter Eingesc
   \item $\Gamma$ ist logaritmisch konvex, d.h.: $$\Gamma(\lambda x + (2 - \lambda)y) \leq \Gamma(x)^\lambda \Gamma(y)^{1 - \lambda}$$ für alle $x, y > 0$ und $0 \leq \lambda \leq 1$
 \end{enumerate}
 Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(1), (2)$ und $(3)$ erfüllt. Zudem gilt: $$\Gamma(x) = \limn \frac{n!n^x}{x(x+1)...(x+n)} \ \ \ \forall x > 0$$
+
+\section{Verschiedene Aufgaben}
+\begin{enumerate}
+  \item Zeige, dass das Chuchy Produkt der beiden ditergenten Reihen $2+2+$ $2^{2}+2^{3}+2^{4}+\cdots$ und $-1+1+1+1+\cdots$ absolut konvergiert. \\
+\textit{Beweis:} Wir definieren:
+$$
+a_{i}= \begin{cases}2, & i=0 \\ 2^{i}, & i=1,2,3,4, \ldots\end{cases}
+$$
+und
+$$
+b_{j}= \begin{cases}-1, & j=0 \\ 1, & j=1,2,3,4, \ldots .\end{cases}
+$$
+und berechnen
+$$
+\begin{aligned}
+\sum_{n=0}^{\infty}\left(\sum_{j=0}^{n} a_{n-j} \cdot b_{j}\right) 
+&=a_{0} \cdot b_{0}+\sum_{n=1}^{\infty}\left(\sum_{j=0}^{n} a_{n-j} \cdot b_{j}\right) \\
+&=a_{0} \cdot b_{0}+\sum_{n=1}^{\infty}(-2^{n}+2^{n-1}+2^{n-2}+ \\ &\ \ \ \ \ \ +\cdots+2^{1}+2) \\
+&=-2+\sum_{n=1}^{\infty}(-2^{n}+2^{n-1}+2^{n-2} \\ &\ \ \ \ \ \ \cdots+2^{1}+2) \\
+&=-2+\sum_{n=1}^{\infty}(1+(1+2+2^{2}+\\ &\ \ \ \ \ \ +\cdots+2^{n-1})-2^{n}) \\
+&=-2+\sum_{n=1}^{\infty}\left(1+\frac{1-2^{n}}{1-2}-2^{n}\right) \\
+&=-2+\sum_{n=1}^{\infty} \underbrace{\left(1-\left(1-2^{n}\right)-2^{n}\right)}_{=0} \\
+&=\sum_{n=0}^{\infty} c_{n}, \text { mit } c_{0}=-2 \text { und } c_{n}=0 \ \forall n \geq 1
+\end{aligned}
+$$
+Offensichtlich konvergiert also das Cauchy produkt $\sum_{n=0}^{\infty} c_{n}$
+\item Zeige, dast für $a<0$ gilt
+$$
+\lim _{x \rightarrow 0^{+}} x^{a}=+\infty
+$$  \\
+\noindent\textit{Beweis:} Wir gehen ähnlich vor wie im Beispiel 3.54. Aus Beispiel 3.53 wissen wir, dass für jedes $n \in \mathbb{N}$ existiert ein $\delta(n)>0$ so, dass
+$$
+0<x<\delta(n) \Longrightarrow \ln (x)<-n
+$$
+Jetzt ist aber $a<0$, somit erhalten wir nach multiplizieren mit $a$ die neue Ungleichung
+$$
+a \ln (x)>-a n
+$$
+Da exp streng monoton ist, erhalten wir:
+$$
+x^{n}=\exp \left(\ln \left(x^{n}\right)\right)=\exp (a \ln (x))>\exp (-a n)
+$$
+und $\mathrm{da}-a n>0$, crhalten wir $\lim _{n \rightarrow \infty} \exp (-a n)=+\infty .$ Nun sei $x_{n}$ cine
+positive Nullfolge die gegen 0 strebt. Ohne den Grenzwert von $x_{n}^{4}$ zu verändern, können wit annehmen, dase $0<x_{n}<\delta(n)$. Dann erhalten wir
+$$
+\lim _{n \rightarrow \infty}\left(x_{a}\right)^{n}>\lim _{n \rightarrow \infty} \exp (-a n)=+\infty
+$$
+Daraus schliessen wir
+$$
+\lim _{x \rightarrow 0^{+}} x^{n}=+\infty
+$$
+\item Sei $f:[0,1] \rightarrow \mathbb{R}$ definiert durch
+$$
+f(x)= \begin{cases}0, & x=0 \text { oder } x \in \mathbb{R} \mathbb{Q} \\ \frac{1}{q}, & x=\frac{p}{q} \text { , mit } p, q \in \mathbb{N}_{>0} \text{ teilerfremd} \end{cases}
+$$
+Zeige, dass $f$ integrierbar ist. \\ \\
+\textit{Beweis}: Erste Beobachtung: jedes Interval $[x_{i-1}, x_i]$ beinhaltet eine irrationale Zahl, solange $x_{i-1} \neq x_i$. Damit ist für jede Partition $P$ von $[0, 1]$ die Untersumme $s(f, P)$ gleich $0$. \\
+Sei $\varepsilon>0$ und $n \in \mathbb{N}$ so dass $\frac{1}{n}<\frac{\varepsilon}{n}$ und $B_{n}$ die Menge aller ``koprimen Brüche'' mit Nenner kleiner gleich $n$ :
+$$
+B_{\mathrm{a}}=\left\{1, \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4}, \frac{3}{4}+\frac{1}{5}, \ldots, \frac{1}{n}, \ldots, \frac{n-1}{n}\right\}
+$$
+Setze $m=\#B_{n}$, wähle $k>m$ und $P=\left\{x_{0} \ldots, x_k\right\}$ eine Partition mit
+$$
+\max _{1 \leq i \leq k}\left|x_{i}-x_{i-1}\right|<\frac{e}{4 m},
+$$
+So eine Partition existiert immer, solange wir $k$ gross genug wählen. Mit der Notation aus der Vorlesung gilt somit
+$$P=P_{\frac{\varepsilon}{4m}}$$
+Da $B_{n}$ aus $m$ -vielen Elementen besteht. gibt es höchsten $2 m$-viele Intervalle $\left[x_{i-1}, x_{i}\right]$, die $B_{n}$ schneiden. \\
+Falls $x \notin B_{a}$. dann ist $x$ entweder irrational (dann folgt $\left.f(x)=0\right), 0$, oder ein Bruch $\frac{p}{q}$ mit $p, q$ teilerfremd und $q>n$ (siehe Definition von $B_{n}$!). Aufjedenfall gilt dann $f(x)<\frac{1}{n}$. \\ 
+Wir schätzen nun die Obwerumme $S(f, P)$ von oben ab:
+
+$
+\begin{aligned}
+  S(f, P) &=\sum_{i=1}^{k}\left(x_{i}-x_{i-1}\right) \cdot \underbrace{\sup _{x \in\left|x_{i}, x_{i-1}\right|} f(x)}_{=f_{i}} \\
+  &=\sum_{i \operatorname{mit} \left[x_{i-1}, x_{i}\right] \cap B_{n} \neq 0}\left(x_{i}-x_{i-1}\right) \cdot f_{i} + \\
+  &+\sum_{j \operatorname{mit} \left[x_{j-1}, x_{j}\right] \cap B_{n} \neq 0}\left(x_{j}-x_{j-1}\right) \cdot f_{j}
+\end{aligned}
+$
+Die erste Summe läuft höchstens über $2m$ Indizes, da es höchstens soviele Intervalle gibt, die $B_{n}$ schneiden, und es gilt $f_{i} \leq 1$ (weil $\left.f(x) \leq 1\right)$. In der zweiten Summe können wir $f_{i}$ mit $\frac{1}{n}$ abschätzen, da das lntervall $B_{m}$ nicht schneidet und wir $f(y)$ für Element auserthalb von $B_{n}$ mit $\frac{1}{n}$ oben abgesehätzt haben. Auserdem gilt
+$$
+\begin{aligned}
+\sum_{i \operatorname{mit}\left(x_{i-1}, x_{i}\right) \cap B_{n}=0}\left(x_{j}-x_{j-1}\right) &\leq \sum_{j=1}^{k}\left(x_{j}-x_{j-1}\right)\\&=x_{k}-x_{0}=1-0=1
+\end{aligned}
+$$
+
+Wir werfen alles zusammen und erhalten:
+$$
+\begin{aligned}
+S(f, P) & \leq 2m \cdot \frac{\varepsilon}{4m} \cdot 1+1 \cdot \frac{1}{n} \\
+&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2} \\
+&=\varepsilon
+\end{aligned}
+$$
+Damit wäre $S(f, P)-s(f, P)<\varepsilon, P=P_{\frac{\varepsilon}{4m}}$
+gezeigt, und Satz $5.8$ besagt nun, dass $f$ integrierbar ist.
+
+\item Beweise, dasa falls
+$$
+\sum_{n=0}^\infty a_nx^n
+$$
+positive Konvergenzradius besitzt, so ist der Komvergenaradius von
+$$
+\sum_{0}^{\infty} \frac{a_{n} x^{n}}{n !}
+$$
+gleich $+\infty$ \\
+\textit{Beweis:} Per Definition, ist die Annahme, das $\limsup_{n \to \infty} \sqrt[n]{a_n}$
+existiert. Zur Erinnerung
+$$\limsup_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} \sup_{k \geq n} \sqrt[k]{a_n}$$
+Per Definition ist der Konvergenaradius $\rho$ von
+$$
+\sum_{n=0}^{\infty} \underbrace{\frac{a_{n}}{n !}}_{b_{n}} x^{n}
+$$
+gleich $+\infty$, genau dann wenn
+$$
+\limsup_{n \to \infty} \sqrt[n]{\left|b_{n}\right|}=0
+$$
+Wir zeigen als letzeres:
+$$
+\begin{aligned}
+  \lim _{n \rightarrow \infty} \sup \sqrt[n]{\left|b_{n}\right|} &=\lim _{n \rightarrow \infty} \sup _{k \geq n} \sqrt[k]{\left|b_{k}\right|} \\
+  &=\lim _{n \rightarrow \infty} \sup _{k \geq n}\left|a_{k}\right|^{\frac{1}{k}} \cdot k !^{-\frac{1}{k}}
+  \end{aligned}
+$$
+Mit der Stirling'schen Formel gilt
+$$
+k !^{-1} \approx\left(\frac{\sqrt{2 \pi k} k^{k}}{e^{k}}\right)=\frac{(2 \pi k)^{-\frac{k}{2}} e}{k}=\frac{e}{(\sqrt{2 \pi k})^{k} \cdot k} \rightarrow 0
+$$
+für $k \rightarrow \infty$. Ausserdem existiert
+$$
+\lim_{n \to \infty}\underbrace{\sup_{k \geq n} \sqrt[k]{\mid a_{k}\mid}}_{=:c_n}
+$$
+per Annahme, und somit ist die Folge $c_{n}$ beschränkt. Also existiert eine $C \in \mathbb{R}$ mit $c_{n} \leq C$ für alle $n$, und daher können wir abschätzen:
+$$
+\begin{aligned}
+  \limsup _{n \rightarrow \infty} \sqrt[4]{\left|b_{n}\right|} &=\lim _{n \rightarrow \infty} \sup _{k \geq n}\left|a_{k}\right|^{\frac{1}{k}} \cdot k !^{-\frac{1}{k}} \\
+  & \leq \lim _{n \rightarrow \infty} C \cdot k !^{-\frac{1}{k}} \\
+  &=C \lim _{n \rightarrow \infty} \sup _{k \geq n} k !^{-\frac{1}{k}} \\
+  &=C \cdot \lim _{n \rightarrow \infty} \sup n !^{-\frac{1}{n}} \\
+  &=C \cdot \lim _{n \rightarrow \infty} n !^{-\frac{1}{n}} \\
+  &=0 .
+  \end{aligned}
+  $$
+Im vorletzten Schritt haben wir verwenden, dass limsup und lim übereinstimmen wenn der Grenzwert existiert.
+\end{enumerate}
+
 \section{Trigonometrie} 
 \subsection{Hyperbol Funktionen}
 \begin{enumerate}
@@ -950,6 +1159,19 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
 \begin{subbox}{Binomialsatz}
   $$(x + y)^n = \sum_{k = 0}^n {n \choose k} x^{n-k}y^k$$
 \end{subbox}
+\subsection{Exponential-FUnktion und Logarithmus}
+\begin{itemize}
+  \item $e \approx 2.72, \ln (1)=0, \ln (e)=1$
+  \item  $\exp (x)>0, \forall x \in \mathbb{R}$ und $\exp (x)>1, \forall x>0$
+  \item $1+x \leq e^{x}$
+  \item $(1+x)^{n} \geq 1+n x$ (Bernoullische Ungleichung)
+  \item $|a+b| \leq|a|+|b|$ (Dreiecksungleichung)
+  \item $\log (x) \leq \sqrt{x}, \forall x>0$
+  \item $\ln (a \cdot b)=\ln (a)+\ln (b)$ und $\ln \left(\frac{a}{b}\right)=\ln (a)-\ln (b)$
+  \item $\ln \left(a^{b}\right)=b \cdot \ln (a)$ und $\log _{a}(x)=\frac{\ln (x)}{\ln (a)}$
+  \item $e^{\ln (x)}=x$ und $\ln \left(e^{x}\right)=x$
+  \item $x^{a}=e^{a \ln (x)}$
+\end{itemize}
 
 \subsection{Bekannte Taylorreihen}
 \begin{align*}
@@ -1012,99 +1234,205 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
     \hline
   \end{tabular}
 \end{center}
+\begin{bemerkung}
+  $\lim _{n \rightarrow \infty} \sqrt[n]{x}=1$ für $\forall x>0$
+\end{bemerkung}
 
 \subsection{Ableitungen und Stammfunktionen}
 
 \renewcommand\arraystretch{2}
 
 \begin{center}
-        \begin{tabular}{c||c}
+        \begin{tabular}{|c|c|}
+          \hline
                 $F(x)$ & $F'(x) = f(x)$ \\
                 \hline \hline
                 
                 $ c $ & $ 0 $ \\
+                \hline
 	        $ x^a $ & $ a \cdot x^{a - 1} $ \\
+          \hline
                 $ \frac{1}{a+1} x^{a+1} $ & $ x^a $ \\
+                \hline
                 $ \frac{1}{a\cdot(n+1)} (ax+b)^{n+1} $ & $ (ax+b)^n $ \\
+                \hline
 	        $ \frac{x^{\alpha+1}}{\alpha + 1} $ & $ x^\alpha, \alpha \neq -1 $ \\
+          \hline
                 $ \sqrt x $ & $ \frac{1}{2 \sqrt x} $ \\
+                \hline
                 $ \sqrt[n] x $ & $ \frac{1}{n} {x}^{ \frac{1}{n} -1 } $ \\
+                \hline
                 $ \frac{2}{3} x^{ \frac{3}{2} } $ & $ \sqrt x $ \\
+                \hline
                 $ \frac{n}{n+1} x^{ \frac{1}{n}+1 } $ & $ \sqrt[n] x $ \\
+                \hline
 	        $ e^x $ & $ e^x $ \\
+          \hline
 	        $ \ln(|x|) $ & $ \frac{1}{x} $ \\
+          \hline
                 $ \log_a |x| $  &  $ \frac{1}{x \ln a} = \log_a(e) \frac{1}{x} $ \\
+                \hline
 	        $ \sin(x) $ & $ \cos(x) $ \\
+          \hline
 	        $ \cos(x) $ & $ -\sin(x) $ \\
+          \hline
 	        $ \tan(x) $ & $ \frac{1}{\cos^2(x)} = 1 + \tan^2(x) $ \\
+          \hline
 	        $ \cot(x) $ & $ \frac{1}{-\sin^2(x)} $ \\
+          \hline
 	        $ \arcsin(x) $ & $ \frac{1}{\sqrt{1 - x^2}} $ \\
+          \hline
 	        $ \arccos(x) $ & $ \frac{-1}{\sqrt{1 - x^2}} $ \\
+          \hline
 	        $ \arctan(x) $ & $ \frac{1}{1 + x^2} $ \\
+          \hline
 	        $ \sinh(x) $ & $ \cosh(x) $ \\
+          \hline
 	        $ \cosh(x) $ & $ \sinh(x) $ \\
+          \hline
           $ \tanh(x) $ & $ \frac{1}{\cosh^2(x)} = 1 - \tanh^2(x) $ \\
+          \hline
           $ \text{arcsinh}(x) $ & $ \frac{1}{\sqrt{1 + x^2}} $ \\
+          \hline
           $ \text{arccosh}(x) $ & $ \frac{1}{\sqrt{x^2 - 1}} $ \\
+          \hline
           $ \text{arctanh}(x) $ & $ \frac{1}{1 - x^2} $ \\
+          \hline
           $ \frac{1}{f(x)} $ & $ \frac{-f'(x)}{(f(x))^2} $ \\
+          \hline
         \end{tabular}
 \end{center}
 
 \begin{center}
-        \begin{tabular}{c||c}
+        \begin{tabular}{|c|c|}
+          \hline
                 $F(x)$ & $F'(x) = f(x)$ \\
                 \hline \hline
 
 	       
                 $ a^{cx} $ & $ a^{cx} \cdot c \ln a $ \\
+                \hline
                 $ x^x $ & $ x^x \cdot (1+\ln x) \quad \scriptstyle x > 0 $ \\
+                \hline
                 $ (x^x)^x $ & $ (x^x)^x(x+2x\ln(x)) \quad \scriptstyle x > 0 $ \\
+                \hline
                 $ x^{(x^x)} $ & $ x^{(x^x)}(x^{x-1}+\ln x \cdot x^x (1+\ln x)) $ \\
+                \hline
                 $ \frac{1}{a} \ln (ax+b) $  &  $ \frac{1}{ax+b}$ \\
+                \hline
                 $ \frac{ax}{c}-\frac{ad-bc}{c^2} \ln |cx+d| $  &  $ \frac{ax+b}{cx+d} $ \\
+                \hline
                 $ \frac{1}{2a} \ln { \big| \frac{x-a}{x+a} \big| } $  &  $ \frac{1}{x^2-a^2} $ \\
+                \hline
                 $ \frac{x}{2} f(x) + \frac{a^2}{2} \ln ( x+f(x) ) $  &  $ \sqrt{a^2+x^2} $ \\
+                \hline
                 $ \frac{x}{2} \sqrt{a^2-x^2} - \frac{a^2}{2} \arcsin \frac{x}{|a|} $  &  $ \sqrt{a^2-x^2} $ \\
+                \hline
                 $ \frac{x}{2} f(x) - \frac{a^2}{2} \ln {( x+f(x) )} $  &  $ \sqrt{x^2-a^2} $ \\
+                \hline
                 $ \ln(x+\sqrt{x^2 \pm a^2}) $  &  $ \frac{1}{\sqrt{x^2 \pm  a^2}} $ \\
+                \hline
                 $ \arcsin( \frac{x}{|a|}) $  &  $ \frac{1}{\sqrt{a^2-x^2}} $ \\
+                \hline
                 $ \frac{1}{a} \arctan(\frac{x}{a}) $  &  $ \frac{1}{x^2+a^2} $ \\
+                \hline
                 $ -\frac{1}{a}\cos(ax+b) $  &  $ \sin(ax+b) $ \\
+                \hline
                 $ \frac{1}{a}\sin(ax+b) $  &  $ \cos(ax+b) $ \\
+                \hline
                 $ -\ln|\cos(x)| $  &  $ \tan(x) $ \\
+                \hline
                 $ \ln |\sin(x)| $  &  $ \cot(x) $ \\
+                \hline
                 $ \ln \left|\tan(\frac{x}{2})\right| $  &  $ \frac{1}{\sin(x)} $ \\
+                \hline
                 $ \ln \left|\tan(\frac{x}{2}+\frac{\pi}{4})\right| $  &  $ \frac{1}{\cos(x)} $ \\
+                \hline
                 $ \frac{1}{2} (x-\sin(x)\cos(x)) $  &  $ \sin^2(x) $ \\
+                \hline
                 $ \frac{1}{2} (x+\sin(x)\cos(x)) $  &  $ \cos^2(x) $ \\
+                \hline
                 $ \tan(x)-x $  &  $ \tan^2(x) $ \\
+                \hline
                 $ -\cot(x)-x $  &  $ \cot^2(x) $ \\
+                \hline
                 $ x \arcsin(x) + \sqrt{1-x^2} $  &  $ \arcsin(x) $ \\
+                \hline
                 $ x \arccos(x) - \sqrt{1-x^2} $  &  $ \arccos(x) $ \\
+                \hline
                 $ x \arctan(x) - \frac{1}{2} \ln (1+x^2) $  &  $ \arctan(x) $ \\
+                \hline
                 $ \ln(\cosh(x)) $  &  $ \tanh(x) $ \\
+                \hline
         \end{tabular}
 \end{center}
     
     
 \begin{center}
-        \begin{tabular}{c||c}
+        \begin{tabular}{|c|c|}
+          \hline
                 $F(x)$ & $F'(x) = f(x)$ \\
                 \hline \hline
                 
                
                 $ \ln {| f(x) |} $   &   $ \frac{f'(x)}{f(x)} $ \\
+                \hline
                 $ x \cdot (\ln |x| - 1) $  &  $ \ln |x| $ \\
+                \hline
                 $ \frac{1}{n+1} (\ln x)^{n+1} \quad \scriptstyle  n \neq -1 $  &  $ \frac{1}{x}(\ln x)^n $ \\
+                \hline
                 $ \frac{1}{2n} (\ln x^n)^{2} \quad \scriptstyle  n \neq 0 $  &  $ \frac{1}{x}\ln x^n $ \\
+                \hline
                 $ \ln |\ln x| \quad \scriptstyle x>0,x\neq 1 $  &  $ \frac{1}{x \ln x} $ \\
+                \hline
                 $ \frac{1}{b \ln a} a^{bx} $  &  $ a^{bx} $ \\
+                \hline
                 $ \frac{cx-1}{c^2} \cdot e^{cx} $  &  $ x\cdot e^{cx} $ \\
+                \hline
                 $ \frac{x^{n+1}}{n+1} \left( \ln x - \frac{1}{n+1} \right) \quad \scriptstyle  n \neq -1 $  &  $ x^n \ln x $ \\
+                \hline
                 $ \frac{e^{cx} \left( c \sin (ax+b)-a \cos(ax+b) \right)}{a^2+c^2}  $  &  $ \scriptstyle e^{cx} \sin (ax+b)  $ \\
+                \hline
                 $ \frac{e^{cx} \left( c \cos (ax+b)+a \sin(ax+b) \right)}{a^2+c^2}  $ &  $ \scriptstyle e^{cx} \cos (ax+b)  $ \\
+                \hline
         \end{tabular}
+\end{center}
+
+\subsection{Trigonometrische Ansätze}
+\begin{center}
+\def\arraystretch{2}
+\begin{tabularx}{0.321\textwidth}{ |>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering
+\arraybackslash}X| }
+ \hline
+ \textbf{f(x)} & \textbf{F(x)} \\
+ \hline
+ $\int_a^b \frac{1}{x^2+1}dx$ & $[arctan(x)]_a^b $\\
+ \hline
+ $\int_a^b \frac{1}{1-x^2}dx$ & $[arctanh(x)]_a^b $\\
+ \hline
+ $\int_a^b \frac{1}{\sqrt{x^2+1}}dx$ & $[arcsinh(x)]_a^b $\\
+ \hline
+ $\int_a^b \frac{-1}{\sqrt{1-x^2}}dx$ & $[arcos(x)]_a^b $\\
+ \hline
+  $\int_a^b \frac{1}{\sqrt{1-x^2}}dx$ & $[arcsin(x)]_a^b $\\
+ \hline
+ $\int_a^b \frac{1}{\sqrt{x^2-1}}dx$ & $[arcosh(x)]_a^b $\\
+  \hline
+ $\int_a^b \frac{1}{sin^2(x)}dx$ & $-cot(x) $\\
+   \hline
+ $\int_a^b \frac{1}{cos^2(x)}dx$ & $tan(x) $\\
+   \hline
+ $\int_a^b \sqrt{1+x^2}dx$ & $\frac{arcsinh(x)+x - \sqrt{x^2+1}}{2} $\\
+  \hline
+   $\int_0^{\pi/2} cos(x)$ & $1$\\
+  \hline
+     $\int_0^{\pi/2} cos^2(x)$ & $\frac{\pi}{4}$\\
+  \hline
+     $\int_0^{\pi/2} sin(x)$ & $1$\\
+  \hline
+     $\int_0^{\pi/2} sin^2(x)$ & $\frac{\pi}{4}$\\
+  \hline
+ \end{tabularx}
 \end{center}
 
 \subsection{Ableitungen}
@@ -1192,6 +1520,8 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
       axis lines = center,
       xlabel = \(x\),
       ylabel = {\(f(x)\)},
+      xtick= {-6.28, -4.71, -3.14, -1.57, 1.57, 3.14, 4.71, 6.28},
+      xticklabels= {-2$\pi$, -3/2$\pi$, $-\pi$, $-\pi$/2, $\pi$/2, $\pi$, 3/2$\pi$, 2$\pi$}
   ]
   %Below the red parabola is defined
   \addplot [
@@ -1224,6 +1554,38 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
       axis lines = center,
       xlabel = \(x\),
       ylabel = {\(f(x)\)},
+      ymin = -4,
+      ymax = 4,
+      xtick= {-6.28, -4.71, -3.14, -1.57, 1.57, 3.14, 4.71, 6.28},
+      xticklabels= {-2$\pi$, -3/2$\pi$, $-\pi$, $-\pi$/2, $\pi$/2, $\pi$, 3/2$\pi$, 2$\pi$}
+  ]
+  %Below the red parabola is defined
+  \addplot [
+      domain=-7:7, 
+      samples=100, 
+      color=red,
+  ]
+  {tan(deg(x))};
+  \addlegendentry{\(tan(x)\)}
+  %Here the blue parabola is defined
+  \addplot [
+      domain=-7:7, 
+      samples=100, 
+      color=blue,
+      ]
+      {cot(deg(x))};
+  \addlegendentry{\(cot(x)\)}
+  \end{axis}
+\end{tikzpicture}
+\\
+\begin{tikzpicture}
+  \begin{axis}[
+    domain=-1:1, 
+    samples=500, 
+    axis lines*=middle, 
+    xtick={-1,1}, 
+    ytick={-1.57,1.57}, 
+    yticklabels={$-\pi$/2,$\pi$/2}
   ]
   %Below the red parabola is defined
   \addplot [
@@ -1231,7 +1593,7 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
       samples=100, 
       color=red,
   ]
-  {asin(x)};
+  {asin(x)/180*pi};
   \addlegendentry{\(arcsin(x)\)}
   %Here the blue parabola is defined
   \addplot [
@@ -1239,7 +1601,7 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
       samples=100, 
       color=blue,
       ]
-  {acos(x)};
+  {acos(x)/180*pi};
   \addlegendentry{\(arccos(x)\)}
   
   \end{axis}
@@ -1251,7 +1613,36 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
       xlabel = \(x\),
       ylabel = {\(f(x)\)},
       ymax = 30,
-      ymin = -30,
+      ymin = 0,
+      ytick={1, 5, 10, 15, 20, 25, 30}
+  ]
+  %Below the red parabola is defined
+  \addplot [
+      domain=-1:6, 
+      samples=200, 
+      color=blue,
+  ]
+  {2^x};
+  \addlegendentry{\(2^x\)}
+  %Here the blue parabola is defined
+  \addplot [
+      domain=-1:6, 
+      samples=100, 
+      color=red,
+      ]
+  {e^x};
+  \addlegendentry{\(e^x\)}
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines = center,
+      xlabel = \(x\),
+      ylabel = {\(f(x)\)},
+      ymax = 5,
+      ymin = -5,
+      ytick={-4, -3, -2, -1, 0, 1, 2, 3, 4}
   ]
   %Below the red parabola is defined
   \addplot [
@@ -1267,8 +1658,17 @@ Die Gamma Funktion ist die einzige Funktion $]0, \infty[ \to ]0, \infty[$ die $(
       samples=100, 
       color=blue,
       ]
-  {e^x};
-  \addlegendentry{\(e^x\)}
+  {log2(x)};
+  \addlegendentry{\(log_2(x)\)}
+
+  %Here the green parabola is defined
+  \addplot [
+      domain=-1:6, 
+      samples=100, 
+      color=green,
+      ]
+  {log10(x)};
+  \addlegendentry{\(log_{10}(x)\)}
   
   \end{axis}
 \end{tikzpicture}

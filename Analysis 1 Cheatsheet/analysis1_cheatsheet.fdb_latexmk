@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1628156192 "c:/Users/herza/Desktop/fs2021/Analysis 1 Cheatsheet/analysis1_cheatsheet.tex" "analysis1_cheatsheet.pdf" "analysis1_cheatsheet" 1628156199
-  "analysis1_cheatsheet.aux" 1628156196 8247 baa3929cd948f4ade059932ea13975be "pdflatex"
-  "analysis1_cheatsheet.tex" 1628156195 56716 5431903320583be3bef717358273bb3c ""
-  "c:/Users/herza/Desktop/fs2021/Analysis 1 Cheatsheet/analysis1_cheatsheet.tex" 1628156195 56716 5431903320583be3bef717358273bb3c ""
+["pdflatex"] 1628524166 "c:/Users/herza/Desktop/fs2021/Analysis 1 Cheatsheet/analysis1_cheatsheet.tex" "analysis1_cheatsheet.pdf" "analysis1_cheatsheet" 1628524169
+  "analysis1_cheatsheet.aux" 1628524169 8750 c4736193e3c4d4ad5d66f371d46f2c24 "pdflatex"
+  "analysis1_cheatsheet.tex" 1628524161 72372 81a0253979817587bb5ff19efa9698e8 ""
+  "c:/Users/herza/Desktop/fs2021/Analysis 1 Cheatsheet/analysis1_cheatsheet.tex" 1628524161 72372 81a0253979817587bb5ff19efa9698e8 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1625140183 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1625141127 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/tcrm0800.tfm" 1625140734 1536 05df9db6aeccc4eea94fec15c9024f79 ""
@@ -20,6 +20,7 @@
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1625140159 1332 1fde11373e221473104d6cc5993f046e ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1625140159 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1625140159 1520 eccf95517727cb11801f4f1aee3a21b4 ""
+  "c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1625140159 1288 655e228510b4c2a1abe905c368440826 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1625140159 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1625140159 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1625140159 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -36,6 +37,8 @@
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1625139447 37912 07513ec114ac737ab54cea0152f4424b ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1625139447 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1625139447 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
+  "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1625139447 35752 024fb6c41858982481f6968b5fc26508 ""
+  "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1625139447 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1625139447 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1625139447 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1625139447 32726 39f0f9e62e84beb801509898a605dbd5 ""
@@ -219,6 +222,6 @@
   "mittelwertsatz.png" 1625155516 18836 bac2d6eaa13b635a83f6b3eafbe0e3ab ""
   "zwischenwertsatz.png" 1625155533 17777 3aa2a0df87a663d7aef436024ae77f8b ""
   (generated)
+  "analysis1_cheatsheet.aux"
   "analysis1_cheatsheet.pdf"
   "analysis1_cheatsheet.log"
-  "analysis1_cheatsheet.aux"
