@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.1)  9 AUG 2021 17:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.1)  10 AUG 2021 11:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -723,77 +723,77 @@ Underfull \hbox (badness 3209) in paragraph at lines 211--212
 [1{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (34.02608pt too wide) in paragraph at lines 318--319
+Overfull \hbox (34.02608pt too wide) in paragraph at lines 309--310
 []\OT1/cmr/m/n/8 Ist Rei-he ein be-kann-ter Typ? (Te-le-sko-pie-ren, Geo-me-tri-sche/Harmonische
  []
 
 <zwischenwertsatz.png, id=26, 521.69907pt x 331.99031pt>
 File: zwischenwertsatz.png Graphic file (type png)
 <use zwischenwertsatz.png>
-Package pdftex.def Info: zwischenwertsatz.png  used on input line 350.
+Package pdftex.def Info: zwischenwertsatz.png  used on input line 341.
 (pdftex.def)             Requested size: 240.40506pt x 152.98587pt.
-[2]
-Overfull \hbox (1.96303pt too wide) in paragraph at lines 400--403
+[2 <./zwischenwertsatz.png>]
+Overfull \hbox (1.96303pt too wide) in paragraph at lines 391--394
 []\OT1/cmr/m/n/8 Indirekte Me-tho-de: $\OML/cmm/m/it/8 f$ \OT1/cmr/m/n/8 un-ste-tig be-deu-tet kei-ne gleichm[]assige
  []
 
-[3 <./zwischenwertsatz.png>]
-Overfull \hbox (3.91258pt too wide) in paragraph at lines 459--460
+
+Overfull \hbox (3.91258pt too wide) in paragraph at lines 454--455
 \OT1/cmr/m/n/8 der Grenz-wert der ein-ge-schr[]ankten Funk-ti-on $\OML/cmm/m/it/8 f$ \OT1/cmr/m/n/8 im Be-reich $\OML/cmm/m/it/8 D\OMS/cmsy/m/n/8 \\OT1/cmr/m/n/8 ]\OML/cmm/m/it/8 x[]; \OT1/cmr/m/n/8 +\OMS/cmsy/m/n/8 1\OT1/cmr/m/n/8 [$
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--484
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 477--479
 
  []
 
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 549.
+(amsmath)                 on input line 544.
 
 <mittelwertsatz.png, id=38, 476.53032pt x 260.47313pt>
 File: mittelwertsatz.png Graphic file (type png)
 <use mittelwertsatz.png>
-Package pdftex.def Info: mittelwertsatz.png  used on input line 561.
+Package pdftex.def Info: mittelwertsatz.png  used on input line 556.
 (pdftex.def)             Requested size: 240.40506pt x 131.4087pt.
 [4 <./mittelwertsatz.png>]
-Overfull \hbox (4.2056pt too wide) in paragraph at lines 618--621
+Overfull \hbox (4.2056pt too wide) in paragraph at lines 613--616
 \OT1/cmr/bx/n/8 Bemerkung:  \OT1/cmr/m/n/8 Al-le Aus-sa-gen gel-ten auch f[]ur \OT1/cmr/bx/n/8 Kon-ka-vit[]at\OT1/cmr/m/n/8 , wir m[]ussen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 713--714
+Underfull \hbox (badness 10000) in paragraph at lines 708--709
 []\OT1/cmr/m/n/8 Mithilfe der Pa-ri-ti-on k[]onnen wir nun die Un-erts-um-
  []
 
 [5] [6]
-Overfull \hbox (17.58508pt too wide) in paragraph at lines 895--899
+Overfull \hbox (17.58508pt too wide) in paragraph at lines 907--911
 \OT1/cmr/m/n/8 ver-wen-den. Wei-ter gilt, dass wenn die Funk-ti-on $\OML/cmm/m/it/8 f \OT1/cmr/m/n/8 : [1\OML/cmm/m/it/8 ; \OMS/cmsy/m/n/8 1\OT1/cmr/m/n/8 [\OMS/cmsy/m/n/8 ! \OT1/cmr/m/n/8 [0\OML/cmm/m/it/8 ; \OMS/cmsy/m/n/8 1\OT1/cmr/m/n/8 [$monoton
  []
 
 
-Overfull \hbox (4.81723pt too wide) in paragraph at lines 909--909
+Overfull \hbox (4.81723pt too wide) in paragraph at lines 921--921
 \OT1/cmr/m/n/8 Die Gam-ma Funk-ti-on ist die ein-zi-ge Funk-ti-on $]0\OML/cmm/m/it/8 ; \OMS/cmsy/m/n/8 1\OT1/cmr/m/n/8 [\OMS/cmsy/m/n/8 !\OT1/cmr/m/n/8 ]0\OML/cmm/m/it/8 ; \OMS/cmsy/m/n/8 1\OT1/cmr/m/n/8 [$ die $(1)\OML/cmm/m/it/8 ; \OT1/cmr/m/n/8 (2)$
  []
 
 [7]
-Overfull \hbox (5.03723pt too wide) detected at line 934
+Overfull \hbox (5.03723pt too wide) detected at line 946
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 964--968
+Underfull \hbox (badness 10000) in paragraph at lines 976--980
 
  []
 
 
-Overfull \hbox (16.96106pt too wide) in paragraph at lines 976--980
+Overfull \hbox (16.96106pt too wide) in paragraph at lines 988--992
 \OT1/cmr/m/n/8 Falls $\OML/cmm/m/it/8 x [] B[]$\OT1/cmr/m/n/8 . dann ist $\OML/cmm/m/it/8 x$ \OT1/cmr/m/n/8 ent-we-der ir-ra-tio-nal (dann folgt $[] \OML/cmm/m/it/8 ; \OT1/cmr/m/n/8 0$,
  []
 
 
-Overfull \hbox (8.64072pt too wide) in paragraph at lines 981--989
+Overfull \hbox (8.64072pt too wide) in paragraph at lines 993--1001
 []$\OT1/cmr/m/n/8 . In der zwei-ten Sum-me k[]onnen wir $\OML/cmm/m/it/8 f[]$ \OT1/cmr/m/n/8 mit $[]$ absch[]atzen,
  []
 
@@ -804,12 +804,12 @@ Overfull \vbox (18.97453pt too high) has occurred while \output is active []
 Overfull \vbox (17.52289pt too high) has occurred while \output is active []
 
 
-Overfull \hbox (4.32982pt too wide) in paragraph at lines 1435--1436
+Overfull \hbox (4.32982pt too wide) in paragraph at lines 1473--1474
  [] 
  []
 
 [11]
-Overfull \hbox (6.76036pt too wide) in paragraph at lines 1636--1637
+Overfull \hbox (6.76036pt too wide) in paragraph at lines 1674--1675
 [][] 
  []
 
@@ -873,7 +873,7 @@ NOTE: coordinate (2Y1.5152817e-1],3Y0.0e0]) has been dropped because it is unbou
 NOTE: coordinate (2Y8.082217e-2],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (2Y1.011617e-2],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 
-Overfull \hbox (22.1196pt too wide) in paragraph at lines 1674--1675
+Overfull \hbox (22.1196pt too wide) in paragraph at lines 1712--1713
 [][] 
  []
 
@@ -881,15 +881,15 @@ Overfull \hbox (22.1196pt too wide) in paragraph at lines 1674--1675
 
 ] (./analysis1_cheatsheet.aux) ) 
 Here is how much of TeX's memory you used:
- 30199 strings out of 478519
- 727138 string characters out of 5853953
- 1302744 words of memory out of 5000000
- 47678 multiletter control sequences out of 15000+600000
+ 30203 strings out of 478519
+ 727202 string characters out of 5853953
+ 1302103 words of memory out of 5000000
+ 47682 multiletter control sequences out of 15000+600000
  411550 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,18n,103p,794b,2140s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/wasy-type1/wasy8.pfb>
-Output written on analysis1_cheatsheet.pdf (12 pages, 375509 bytes).
+Output written on analysis1_cheatsheet.pdf (12 pages, 379455 bytes).
 PDF statistics:
  152 PDF objects out of 1000 (max. 8388607)
  93 compressed objects within 1 object stream

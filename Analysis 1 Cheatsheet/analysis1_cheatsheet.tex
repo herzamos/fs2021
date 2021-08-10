@@ -303,15 +303,6 @@ Falls gilt:
   $$\int_k^\infty f(x)\dx \text{ konvergiert } \Rightarrow \sum_{n = k}^\infty a_n \text{ konvergiert}$$$$\int_k^\infty f(x)\dx \text{ divergiert } \Rightarrow \sum_{n = k}^\infty a_n \text{ divergiert}$$
 \end{mainbox}
 
-\subsubsection{Wichtige Reihen}
-\begin{align*}
- \sum_{i=1}^n i &= \frac{n(n+1)}{2} \\
- \sum_{i=1}^n i^2 &= \frac{1}{6}n(n+1)(2n+1) \\
- \sum_{i=1}^n i^3 &= \frac{1}{4}n^2(n+1)^2 \\
- \sum_{i=1}^\infty \frac{1}{i^2} &= \frac{\pi^2}{6} \\
- \sum_{n=1}^\infty \frac{1}{n(n+1)} &= 1
-\end{align*}
-
 \subsubsection{Strategie - Konvergenz von Reihen}
 \begin{enumerate}
   \item Ist der Partialsummen nach oben beschränkt? Wenn Ja, konvergiert die Reihe
@@ -454,6 +445,10 @@ $\Rightarrow \ldots \Rightarrow |x-1||x+1| < \varepsilon$.\\
 Assume now $\delta \leq 1 \Rightarrow |x - 1| < \delta \leq 1 \Rightarrow -1 < x-1 < 1 \Rightarrow 0 < x < 2$ so that $1 < |x+1| < 3$. \\
 Follows $|x-1||x+1| < |x-1| \cdot 3 < \varepsilon \Rightarrow |x-1| < \frac{\epsilon}{3}$. \\
 Take now $\delta = \text{min} \{ 1, \frac{\epsilon}{3} \}$. Thus if $0 < |x - 1| < \delta$, it follows that $|f(x) - 10| < \epsilon$.
+\begin{subbox}{Limes $\to -\infty / +\infty$}
+  $$\lim_{x \to -\infty} [\lim_{x \to +\infty}] f(x) = L$$
+  $$\Leftrightarrow |f(x) - L| < \epsilon \ \forall x \in D \text{ with } x < K [x > K]$$
+\end{subbox}
 
 \subsection{Linksseitiger und Rechtsseitiger Grenzwert}
 Sei $f: D \to \R$ und $x_0 \in D$ ein Häufungspunkt von $D \cap ]x_0, +\infty[$. Falls der Grenzwert der eingeschränkten Funktion $f$ im Bereich $D \cap ]x_0, +\infty[$ für $x \to x_0$ existiert, wird er mit $\lim_{x\to x_0^+}f(x)$ bezeichnet und nennt sich \textbf{rechtsseitiger Grenzwert} von $f$ bei $x_0$. Das Analoge gilt für den \textbf{linksseitigen Grenzwert}. \\
@@ -595,7 +590,7 @@ Jede glatte, d.h. beliebig oft differenzierbare, Funktion $f \in C^\infty$ kann 
 
 \begin{subbox}{Surjektivität zeigen}
   \begin{enumerate}
-    \item $\lim_{x\to \infty} f(x) = b $und $\lim_{x\to -\infty}= a$ zeigen
+    \item $\lim_{x\to \infty} f(x) = b $ und $\lim_{x\to -\infty} f(x) = a$ zeigen
     \item Sei nun $y \in]a, b[$ beliebig. Wegen der Grenzwerte von $f$ gilt: $\exists x_1 < x_2 : f(x_1) < y < f(x_2)$. Mit dem Zwischenwertsatz gilt dann: $\exists c \in [x_1, x_2] : f(c) = y$ und somit ist $f$ surjektiv.
   \end{enumerate}
 \end{subbox}
@@ -713,6 +708,7 @@ Es gilt:
  Mithilfe der Parition können wir nun die Unertsumme/Obersumme einer Funktion definirien:
  $$s(f, P) = \sum_{i = 1}^n f_i \delta_i, \ \ \ f_i = \inf_{x_{i - 1} \leq x \leq x_i} f(x)$$
  $$S(f, P) = \sum_{i = 1}^n F_i \delta_i, \ \ \ F_i = \sup_{x_{i - 1} \leq x \leq x_i} f(x)$$
+ wobei $\delta_i = x_i - x_{i-1}$. \\
  Sei nun $\mathcal{P}(I)$ die Menge alle Partitionen von $I$, definieren wir:
  $$s(f) = \sup_{P \in \mathcal{P}(I)} s(f, P) \ \text{und} \ S(f) = \inf_{P \in \mathcal{P}(I)} S(f, P)$$
 \end{subbox}
@@ -720,8 +716,15 @@ Es gilt:
 \begin{mainbox}{Riemann-integrierbar}
  $f:[a,b] \to \R$ ist Riemann-integrierbar, falls $s(f) = S(f)$. In diesem Fall bezeichnen wir den gemeinsamen Wert als: $$s(f) := \int_a^b f(x)\dx = S(f)$$
  \textbf{Alternativ:} $f$ ist genau dann integrierbar wenn gilt: $$\forall \epsilon > 0, \exists P : |s(f, P) - S(f, P)| < \epsilon$$
-
 \end{mainbox}
+
+\begin{bemerkung}
+  Sei $\xi_i \in [x_{i-1}, x_i]$ und $m = \max_{1 \leq i \leq n}\{x_i - x_{i-1}\}$. Dann:
+  $$\lim_{m \to 0} \sum_{i = 1}^n f(\xi_i) \cdot \delta_i = \int_a^b f(x) \dx$$
+  often benutzen wir $\delta_i = \frac{b- a}{n}$ und $\xi_i = a + \left(\frac{b-a}{n}\right)i$ so dass:
+  $$\int_a^b f(x) \dx = \lim_{n \to \infty} \sum_{i = 1}^n f(\xi_i) \cdot \delta_i$$
+\end{bemerkung}
+
 \begin{bemerkung}
 \begin{itemize}
  \item $f$ stetig in $[a,b] \implies f$ integrierbar über $[a,b]$
@@ -733,6 +736,15 @@ Es gilt:
  Wenn $f,g$ beschränkt und integrierbar sind, dann sind
  $$f+g, \lambda \cdot f, f \cdot g, |f|, \max(f,g), \min(f,g), \frac{f}{g}$$ integrierbar.
 \end{subbox}
+
+\noindent \textbf{Beispiel:} Zu zeigen: $f(x) = x^2, x \in [0, 1]$ ist Riemann-inetgrierbar. \\
+\textit{Beweis:} Wählen wir $P = [x_0, x_1, \ldots, x_n]$ mit $x_k = \frac{k}{n}, \ k = 0, 1, \ldots, n$ \\
+Da $f$ wachsend in $[0, 1]$ für $k = 1, 2, \ldots, n$: 
+$$f_i = x_{k-1}^2 = \left(\frac{k-1}{n}\right)^2, \ \ \ F_i = x_k^2 = \left(\frac{k}{n}\right)^2, \ \ \ \delta_i = \frac{1}{n}$$
+Jetzt: 
+$$s(f, P) = \sum_{k = 1}^n \left(\frac{k-1}{n}\right)^2 \cdot \frac{1}{n} = \ldots = \frac{1}{3} - \frac{3n-1}{6n^2}$$
+und $$S(f, P) = \sum_{k = 1}^n \left(\frac{k}{n}\right)^2 \cdot \frac{1}{n} = \ldots = \frac{1}{3} + \frac{3n-1}{6n^2}$$
+Da $s(f, P) \leq \frac{1}{3} \leq S(f, P)$ und $S(f, P) - s(f, P) = \frac{1}{n} \to 0 \text{ für } n \to +\infty$, $f$ ist Rieman-integrierbar.
 
 \subsection{Sätze \& Umgleichungen}
 \begin{subbox}{Umgleichungen}
@@ -1159,7 +1171,24 @@ Im vorletzten Schritt haben wir verwenden, dass limsup und lim übereinstimmen w
 \begin{subbox}{Binomialsatz}
   $$(x + y)^n = \sum_{k = 0}^n {n \choose k} x^{n-k}y^k$$
 \end{subbox}
-\subsection{Exponential-FUnktion und Logarithmus}
+
+\subsection{Komplexe Zahlen}
+  $$z = a + b \cdot \,\mathrm i$$
+  $$z = r(\cos \omega + \,\mathrm i \sin \omega) = r \text{ cis } \omega = r\cdot e^{\,\mathrm i \omega}$$
+  \textbf{Exponent:} $z^n = r^ne^{\,\mathrm i n \omega}$ \\
+  For the following let $z_1 = a + \,\mathrm i\cdot b$ and $z_2 = c + \,\mathrm i \cdot d$. 
+  \begin{subbox}{Addition/Subtraktion}
+    $$z_1+z_2=(a+c)+(b+d)\,\mathrm i \text{   ,   } z_1-z_2=(a-c)+(b-d)\,\mathrm i$$
+  \end{subbox}
+
+  \begin{subbox}{Multiplikation}
+    $$z_1\cdot z_2=(ac+bd\,\mathrm i^2)+(ad+bc)\,\mathrm i=(ac-bd)+(ad+bc)\,\mathrm i$$
+  \end{subbox}
+
+  \begin{subbox}{Division}
+    $$\frac{z_1}{z_2} = \frac{(a+b\,\mathrm i)(c-d\,\mathrm i)}{(c+d\,\mathrm i)(c-d\,\mathrm i)} = \frac{ac+bd}{c^2+d^2}+\frac{bc-ad}{c^2+d^2}\mathrm i$$
+  \end{subbox}
+\subsection{Exponential-Funktion und Logarithmus}
 \begin{itemize}
   \item $e \approx 2.72, \ln (1)=0, \ln (e)=1$
   \item  $\exp (x)>0, \forall x \in \mathbb{R}$ und $\exp (x)>1, \forall x>0$
@@ -1185,6 +1214,15 @@ Im vorletzten Schritt haben wir verwenden, dass limsup und lim übereinstimmen w
   \ln(1 + x) & = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} \mathcal{O}(x^5) \\
   (1 + x)^\alpha & = 1 + \alpha x - \frac{\alpha (\alpha - 1)}{2}x^2 + \mathcal{O}(x^3) \\ 
   \sqrt{1 + x} & = 1 + \frac{x}{2} - \frac{x^2}{8} + \frac{x^3}{16} - \mathcal{O}(x^4) \\
+\end{align*}
+
+\subsection{Wichtige Reihen}
+\begin{align*}
+ \sum_{i=1}^n i &= \frac{n(n+1)}{2} \\
+ \sum_{i=1}^n i^2 &= \frac{n(n+1)(2n+1)}{6} \\
+ \sum_{i=1}^n i^3 &= \frac{n^2(n+1)^2}{4} \\
+ \sum_{i=1}^\infty \frac{1}{i^2} &= \frac{\pi^2}{6} \\
+ \sum_{n=1}^\infty \frac{1}{n(n+1)} &= 1
 \end{align*}
 
 
